@@ -45,7 +45,7 @@ public class BankAccountVerificationApiTest {
 			
     }
     
-    /*
+    
     @Test
     public void accountValidatorAPITest() throws Exception {
         
@@ -70,7 +70,7 @@ public class BankAccountVerificationApiTest {
         AckEVRequest response = api.accountValidatorAPI(xApiKey, username, password, request);
         
         Assert.assertTrue(response.getInquiryId() != null);
-    }*/
+    }
     
     
     
