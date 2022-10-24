@@ -10,18 +10,28 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Information about a successful employment verification process.")
 
 public class SuccessEVConsumption {
+	@SerializedName("errors")
+	private Errors errors = null;
 	@SerializedName("request")
 	private AccountValidator request = null;
 	@SerializedName("verificationConfidence")
 	private Float verificationConfidence = null;
 	@SerializedName("ownershipConfidence")
 	private Float ownershipConfidence = null;
-	@SerializedName("cep")
+	@SerializedName("cepUrl")
 	private String cep = null;
 
 	public SuccessEVConsumption request(AccountValidator request) {
 		this.request = request;
 		return this;
+	}
+
+	public Errors getErrors() {
+		return errors;
+	}
+
+	public void setErrors(Errors errors) {
+		this.errors = errors;
 	}
 
 	@ApiModelProperty(value = "")
@@ -79,6 +89,7 @@ public class SuccessEVConsumption {
 		}
 		SuccessEVConsumption successEVConsumption = (SuccessEVConsumption) o;
 		return Objects.equals(this.request, successEVConsumption.request)
+				&& Objects.equals(this.errors, successEVConsumption.errors)
 				&& Objects.equals(this.verificationConfidence, successEVConsumption.verificationConfidence)
 				&& Objects.equals(this.ownershipConfidence, successEVConsumption.ownershipConfidence)
 				&& Objects.equals(this.cep, successEVConsumption.cep);
@@ -86,14 +97,15 @@ public class SuccessEVConsumption {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(request, verificationConfidence, ownershipConfidence);
+		return Objects.hash(errors, request, verificationConfidence, ownershipConfidence);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class SuccessEVConsumption {\n");
-
+		
+		sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
 		sb.append("    request: ").append(toIndentedString(request)).append("\n");
 		sb.append("    verificationConfidence: ").append(toIndentedString(verificationConfidence)).append("\n");
 		sb.append("    ownershipConfidence: ").append(toIndentedString(ownershipConfidence)).append("\n");
