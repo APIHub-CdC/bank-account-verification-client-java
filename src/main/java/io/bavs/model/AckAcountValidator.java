@@ -16,7 +16,7 @@ public class AckAcountValidator {
   @SerializedName("acknowledgeId")
   private UUID acknowledgeId = null;
   @SerializedName("dateTime")
-  private OffsetDateTime dateTime = null;
+  private String dateTime = null;
   
   @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
@@ -65,7 +65,7 @@ public class AckAcountValidator {
   }
    
   @ApiModelProperty(example = "2020-04-12T22:20:50.52Z", value = "Date and time of the acknowledge. As defined by date-time - RFC3339.")
-  public OffsetDateTime getDateTime() {
+  public String getDateTime() {
     return dateTime;
   }
    
