@@ -4,7 +4,6 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 import io.bavs.model.AckAcountValidator;
-import io.bavs.model.FailureEVConsumption;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 

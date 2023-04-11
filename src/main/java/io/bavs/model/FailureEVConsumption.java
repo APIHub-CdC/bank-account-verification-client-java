@@ -3,8 +3,6 @@ package io.bavs.model;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
-import io.bavs.model.AccountValidator;
-import io.bavs.model.Error;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
