@@ -9,7 +9,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 
 public class AckAcountValidator {

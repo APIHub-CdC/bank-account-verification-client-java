@@ -1,24 +1,25 @@
 package io.bavs.model;
 
+import java.util.ArrayList;
 import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
-import io.bavs.model.AccountValidator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(description = "Information about a successful employment verification process.")
 
 public class SuccessEVConsumption {
-	@SerializedName("errors")
-	private Errors errors = null;
+	@SerializedName("reasonProcess")
+	private ArrayList<ReasonProcess> reasonProcess = null;
 	@SerializedName("request")
 	private AccountValidator request = null;
 	@SerializedName("verificationConfidence")
 	private Float verificationConfidence = null;
 	@SerializedName("ownershipConfidence")
 	private Float ownershipConfidence = null;
-	@SerializedName("cepUrl")
+	@SerializedName("cep")
 	private String cep = null;
 
 	public SuccessEVConsumption request(AccountValidator request) {
@@ -26,13 +27,19 @@ public class SuccessEVConsumption {
 		return this;
 	}
 
-	public Errors getErrors() {
-		return errors;
+	
+
+	public ArrayList<ReasonProcess> getReasonProcess() {
+		return reasonProcess;
 	}
 
-	public void setErrors(Errors errors) {
-		this.errors = errors;
+
+
+	public void setReasonProcess(ArrayList<ReasonProcess> reasonProcess) {
+		this.reasonProcess = reasonProcess;
 	}
+
+
 
 	@ApiModelProperty(value = "")
 	public AccountValidator getRequest() {
@@ -89,7 +96,7 @@ public class SuccessEVConsumption {
 		}
 		SuccessEVConsumption successEVConsumption = (SuccessEVConsumption) o;
 		return Objects.equals(this.request, successEVConsumption.request)
-				&& Objects.equals(this.errors, successEVConsumption.errors)
+				&& Objects.equals(this.reasonProcess, successEVConsumption.reasonProcess)
 				&& Objects.equals(this.verificationConfidence, successEVConsumption.verificationConfidence)
 				&& Objects.equals(this.ownershipConfidence, successEVConsumption.ownershipConfidence)
 				&& Objects.equals(this.cep, successEVConsumption.cep);
@@ -97,7 +104,7 @@ public class SuccessEVConsumption {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(errors, request, verificationConfidence, ownershipConfidence);
+		return Objects.hash(reasonProcess, request, verificationConfidence, ownershipConfidence);
 	}
 
 	@Override
@@ -105,7 +112,7 @@ public class SuccessEVConsumption {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class SuccessEVConsumption {\n");
 		
-		sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+		sb.append("    reasonProcess: ").append(toIndentedString(reasonProcess)).append("\n");
 		sb.append("    request: ").append(toIndentedString(request)).append("\n");
 		sb.append("    verificationConfidence: ").append(toIndentedString(verificationConfidence)).append("\n");
 		sb.append("    ownershipConfidence: ").append(toIndentedString(ownershipConfidence)).append("\n");

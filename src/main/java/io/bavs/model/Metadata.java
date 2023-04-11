@@ -3,7 +3,6 @@ package io.bavs.model;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
-import io.bavs.model.Links;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
