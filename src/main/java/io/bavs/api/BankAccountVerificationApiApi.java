@@ -130,7 +130,7 @@ public class BankAccountVerificationApiApi {
     
     public okhttp3.Call getAcountValidatorCall(String xApiKey, String username, String password, String inquiryId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        String localVarPath = "/accountValidator/{inquiryId}"
+        String localVarPath = "/{inquiryId}"
             .replaceAll("\\{" + "inquiryId" + "\\}", apiClient.escapeString(inquiryId.toString()));
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

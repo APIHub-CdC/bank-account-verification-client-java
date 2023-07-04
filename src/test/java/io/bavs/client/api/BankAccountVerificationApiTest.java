@@ -3,12 +3,17 @@ package io.bavs.client.api;
 import io.bavs.api.BankAccountVerificationApiApi;
 import io.bavs.client.ApiClient;
 import io.bavs.model.AccountValidator;
+import io.bavs.model.AccountValidator.AccountTypeEnum;
+import io.bavs.model.AccountValidator.IdentifierTypeEnum;
 import io.bavs.model.AccountValidatorWithPrivacyNotice;
 import io.bavs.model.AckEVRequest;
 import io.bavs.model.AckSuccessEVConsumption;
+import io.bavs.model.CatalogBank;
 import okhttp3.OkHttpClient;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.cdc.apihub.signer.manager.interceptor.SignerInterceptor;
 
@@ -22,6 +27,8 @@ public class BankAccountVerificationApiTest {
 	
     private final BankAccountVerificationApiApi api = new BankAccountVerificationApiApi();
     
+    private Logger logger = LoggerFactory.getLogger(BankAccountVerificationApiTest.class.getName());
+    
     private String keystoreFile = "your_path_for_your_keystore/keystore.jks";
     private String cdcCertFile = "your_path_for_certificate_of_cdc/cdc_cert.pem";
     private String keystorePassword = "your_super_secure_keystore_password";
@@ -33,6 +40,7 @@ public class BankAccountVerificationApiTest {
     
     private String url = "the_url";
     private String xApiKey = "your_x_Api_Key";
+    
     
     @Before()
     public void setUp() {
@@ -55,9 +63,10 @@ public class BankAccountVerificationApiTest {
         accountValidator.setExternalId(UUID.randomUUID());
         accountValidator.setSubscriptionId(UUID.fromString("uuid"));
         accountValidator.setBankId(null);
+        accountValidator.setIdentifierType(null);
         accountValidator.setAccountType(null);
         accountValidator.setAccountIdentifier(null);
-        accountValidator.setFirstName(null);
+        accountValidator.setName(null);
         accountValidator.setSecondName(null);
         accountValidator.setLastName(null);
         accountValidator.setSecondLastName(null);
@@ -82,10 +91,13 @@ public class BankAccountVerificationApiTest {
         AckSuccessEVConsumption response = api.getAcountValidator(xApiKey, username, password, inquiryId);
         
         
+        logger.info(response.toString());
+        
         Assert.assertNotNull(response);
         
         
     }
+    
     
     
 }
