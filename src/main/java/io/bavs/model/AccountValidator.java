@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class AccountValidator extends AccountValidatorId {
 	@SerializedName("bankId")
-	private CatalogBank bankId = null;
+	private Integer bankId = null;
 
 	@JsonAdapter(AccountTypeEnum.Adapter.class)
 	public enum AccountTypeEnum {
@@ -132,7 +132,7 @@ public class AccountValidator extends AccountValidatorId {
 	@SerializedName("verifierCompany")
 	private String verifierCompany = null;
 
-	public AccountValidator bankId(CatalogBank bankId) {
+	public AccountValidator bankId(Integer bankId) {
 		this.bankId = bankId;
 		return this;
 	}
@@ -146,11 +146,11 @@ public class AccountValidator extends AccountValidatorId {
 	}
 
 	@ApiModelProperty(required = true, value = "")
-	public CatalogBank getBankId() {
+	public Integer getBankId() {
 		return bankId;
 	}
 
-	public void setBankId(CatalogBank bankId) {
+	public void setBankId(Integer bankId) {
 		this.bankId = bankId;
 	}
 
