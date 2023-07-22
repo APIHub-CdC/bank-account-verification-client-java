@@ -155,7 +155,7 @@ In the WebHookSubscriptionsApiTest.java file, found at  ***src/test/java/io/bavs
 2. Access credentials given by Círculo de Crédito, obtained after affiliation
    - usernameCDC: Círculo de Crédito user
    - passwordCDC: Círculo de Crédito password
-	
+  
 2. API consumption data
    - url: URL of the API exposure
    - xApiKey: Located in the application (created in ** step 2 **) of the portal and named as Consumer Key
@@ -165,7 +165,7 @@ In the WebHookSubscriptionsApiTest.java file, found at  ***src/test/java/io/bavs
 ```java
 
 public class BankAccountVerificationApiTest {
-	
+  
     private final BankAccountVerificationApiApi api = new BankAccountVerificationApiApi();
     
     private String keystoreFile = "your_path_for_your_keystore/keystore.jks";
@@ -182,13 +182,13 @@ public class BankAccountVerificationApiTest {
     
     @Before()
     public void setUp() {
-    	 
-    	ApiClient apiClient = api.getApiClient();
+       
+      ApiClient apiClient = api.getApiClient();
         apiClient.setBasePath(url);
-		OkHttpClient okHttpClient = new OkHttpClient().newBuilder().readTimeout(30, TimeUnit.SECONDS)
-				.addInterceptor(new SignerInterceptor(keystoreFile, cdcCertFile, keystorePassword, keyAlias, keyPassword)).build();
-		apiClient.setHttpClient(okHttpClient);
-			
+    OkHttpClient okHttpClient = new OkHttpClient().newBuilder().readTimeout(30, TimeUnit.SECONDS)
+        .addInterceptor(new SignerInterceptor(keystoreFile, cdcCertFile, keystorePassword, keyAlias, keyPassword)).build();
+    apiClient.setHttpClient(okHttpClient);
+      
     }
     
     
@@ -201,9 +201,10 @@ public class BankAccountVerificationApiTest {
         accountValidator.setExternalId(UUID.randomUUID());
         accountValidator.setSubscriptionId(UUID.fromString("uuid"));
         accountValidator.setBankId(null);
+        accountValidator.setIdentifierType(null);
         accountValidator.setAccountType(null);
         accountValidator.setAccountIdentifier(null);
-        accountValidator.setFirstName(null);
+        accountValidator.setName(null);
         accountValidator.setSecondName(null);
         accountValidator.setLastName(null);
         accountValidator.setSecondLastName(null);
