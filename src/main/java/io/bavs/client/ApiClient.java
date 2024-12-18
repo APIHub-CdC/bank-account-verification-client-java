@@ -36,7 +36,7 @@ import okhttp3.Response;
 import okhttp3.internal.http.HttpMethod;
 
 public class ApiClient {
-	private String basePath = "";
+	private String basePath = "https://services.circulodecredito.com.mx/v1/bavs/v1/bavs/accountValidator";
 	private static final String JSON = "application/json";
 	private Map<String, String> defaultHeaderMap = new HashMap<>();
 	private String tempFolderPath = null;
